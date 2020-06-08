@@ -2,14 +2,13 @@ package Telematyka.Projekt.model.entities;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.File;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
 
 
 @Entity
 @Table(name = "wyniki")
-@EnableConfigurationProperties({ FileStorageProperties.class })
+
 
 public class Wyniki {
     @Id
@@ -19,7 +18,7 @@ public class Wyniki {
     private Long id_b;
     private Long id_l;
     private Long id_c;
-    private File wynik;
+    private File plik;
     private String opis_wyniku;
 
     public Wyniki(){
@@ -30,7 +29,7 @@ public class Wyniki {
         this.id_b = id_b;
         this.id_l = id_l;
         this.id_c = id_c;
-        this.wynik = wynik;
+        this.plik = wynik;
         this.opis_wyniku = opis_wyniku;
     }
 
@@ -73,12 +72,12 @@ public class Wyniki {
         this.id_c = id_c;
     }
 
-    public File getWynik() {
-        return wynik;
+    public File getPlik() {
+        return plik;
     }
 
-    public void setWynik(File wynik) {
-        this.wynik = wynik;
+    public void setPlik(File plik) {
+        this.plik = plik;
     }
 
     public String getOpis_wyniku() {
@@ -92,7 +91,7 @@ public class Wyniki {
     @Override
     public String toString(){
         return "Id wyniku: " + id_wyniku + '\n' + "Id pacjenta: " + id_p + '\n' + "Id badania: " + id_b + '\n'
-                + " Id lekarza: " + id_l + '\n' + "Id czasu badania: " + id_c + '\n' + wynik +
+                + " Id lekarza: " + id_l + '\n' + "Id czasu badania: " + id_c + '\n' + plik +
                 "Opis wyniku: " + opis_wyniku;
 
     }
